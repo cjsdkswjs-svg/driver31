@@ -1,0 +1,9 @@
+{
+  "name": "daeri-gisa-static",
+  "private": true,
+  "scripts": {
+    "dev": "node -e \"const http=require('http'),fs=require('fs'),path=require('path'),p=Number(process.env.PORT)||3000,root=process.cwd();http.createServer((req,res)=>{const u=(req.url||'/').split('?')[0];if(u==='/'||u==='/index.html'){res.writeHead(200,{'Content-Type':'text/html; charset=utf-8'});fs.createReadStream(path.join(root,'index.html')).pipe(res);return;}res.writeHead(404);res.end('Not Found');}).listen(p,'0.0.0.0',()=>console.log('Static server running on http://localhost:'+p))\"",
+    "build": "node -e \"const fs=require('fs'),vm=require('vm');const html=fs.readFileSync('index.html','utf8');const m=html.match(/<script>([\\s\\S]*?)<\\/script>/);if(!m)process.exit(1);new vm.Script(m[1]);console.log('Verified standalone index.html');\"",
+    "lint": "node -e \"const fs=require('fs'),vm=require('vm');const html=fs.readFileSync('index.html','utf8');const m=html.match(/<script>([\\s\\S]*?)<\\/script>/);if(!m)process.exit(1);new vm.Script(m[1]);\""
+  }
+}

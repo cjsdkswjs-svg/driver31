@@ -1,0 +1,6 @@
+{
+  "name": "대리기사",
+  "description": "모두의 고민을 대신해서 들어주고 목적지까지 함께 가 주는 마음 운행 웹앱",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
